@@ -1,0 +1,52 @@
+<div id="curso1" class="curso-container">
+
+  <!-- Introdução do curso -->
+  <div class="curso-intro">
+    <h2>Compras e Suprimentos</h2>
+    <p>Aprenda a gerenciar processos de compras de forma eficiente.</p>
+    <ul>
+      <li>Rotina de Compras</li>
+      <li>Cálculo da Previsão</li>
+      <li>Geração de Solicitação de Compras</li>
+    </ul>
+    <button onclick="startSlides('curso1')" class="btn-primary" style="font-weight: bold;">INICIAR</button>
+    <button class="btn-primary btn-voltar" onclick="backToHome()" style="position: unset; margin-left: 15px;">← VOLTAR</button>
+  </div>
+
+  <!-- Container de slides -->
+  <div class="slides-container" style="display:none;">
+    
+    <!-- Sumário do lado -->
+    <div class="curso-sumario">
+      <h3>Sumário</h3>
+      <ul>
+        <li onclick="goToSlide('curso1', 0)">Introdução</li>
+        <li onclick="goToSlide('curso1', 1)">Cálculo da Previsão</li>
+        <li onclick="goToSlide('curso1', 2)">Solicitação de Compras</li>
+      </ul>
+    </div>
+
+<!-- Slides -->
+    <div class="slides-wrapper">
+        <!-- Botão de voltar -->
+      <button class="btn-voltar" onclick="backToIntro('curso1')">
+        ← Voltar
+      </button> 
+
+      <div class="slide active">
+        <img src="imagens/slides/slide1.svg" alt="Slide 1">
+      </div>
+      <div class="slide">
+        <img src="imagens/slides/slide2.svg" alt="Slide 2">
+      </div>
+      <div class="slide">
+        <img src="imagens/slides/slide3.svg" alt="Slide 3">
+      </div>
+
+      <!-- Botões de navegação -->
+      <button class="slider-prev" onclick="prevSlide('curso1')">◀</button>
+      <button class="slider-next" onclick="nextSlide('curso1')">▶</button>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,513 @@
+/* ------------------- GERAL ------------------- */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #F5F5F5;
+  color: #333333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Botão principal */
+.btn-primary {
+  background-color: #fff;
+  color: #CF7612;
+  border: 2px solid #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.btn-primary:hover {
+  background-color: #B35F0F;
+  color: #fff;
+  border-color: #B35F0F;
+}
+
+/* ------------------- HERO ------------------- */
+.hero {
+  background-color: #CF7612;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* ------------------- DESTAQUES ------------------- */
+.destaques {
+  padding: 40px 20px;
+}
+.destaques h2 {
+  color: #CF7612;
+}
+.destaques .cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.destaques .card {
+  background-color: #fff;
+  border: 1px solid #E0E0E0;
+  border-top: 4px solid #CF7612;
+  border-radius: 8px;
+  padding: 20px;
+  flex: 1 1 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.destaques .card h3 {
+  color: #CF7612;
+  margin-top: 0;
+}
+.destaques .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ------------------- DICAS + FAQ ------------------- */
+.dicas-faq {
+  display: flex;
+  gap: 20px;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+}
+.dicas, .faq {
+  background-color: #fff;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  padding: 20px;
+  flex: 1 1 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.dicas h2, .faq h2 {
+  color: #CF7612;
+}
+.dicas:hover, .faq:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ------------------- DEPOIMENTOS ------------------- */
+.depoimentos {
+  padding: 40px 20px;
+  background-color: #fff;
+}
+.depoimentos h2 {
+  color: #CF7612;
+}
+.depoimentos-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.depoimento-card {
+  background-color: #F5F5F5;
+  border-left: 6px solid #CF7612;
+  padding: 20px;
+  flex: 1 1 300px;
+  border-radius: 6px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.depoimento-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ------------------- MENU SUPERIOR ------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Marydale&display=swap');
+
+.top-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #fff;
+  border-bottom: 3px solid #CF7612;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.top-menu .logo {
+  font-family: 'Marydale', cursive;
+  font-size: 2rem;
+  color: #CF7612;
+  cursor: pointer;
+  transition: transform 0.3s, color 0.3s;
+}
+.top-menu .logo:hover {
+  transform: scale(1.1);
+  color: #B35F0F;
+}
+.top-menu .nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s, transform 0.3s;
+}
+.top-menu .nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 3px;
+  background-color: #CF7612;
+  transition: width 0.3s;
+}
+.top-menu .nav-links a:hover {
+  color: #CF7612;
+  transform: translateY(-2px);
+}
+.top-menu .nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ------------------- CONTATO ------------------- */
+.contato {
+  padding: 60px 20px;
+}
+.contato h1 {
+  color: #CF7612;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.contato p {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.contato-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+.contato-form,
+.contato-info {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  border-top: 4px solid #CF7612;
+}
+.contato-form {
+  flex: 1 1 300px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.contato-form label {
+  font-weight: 500;
+}
+.contato-form input,
+.contato-form textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border 0.3s;
+}
+.contato-form input:focus,
+.contato-form textarea:focus {
+  border: 2px solid #CF7612;
+  outline: none;
+}
+.contato-form button.btn-primary {
+  width: 50%;
+  align-self: center;
+  cursor: pointer;
+}
+.contato-info {
+  flex: 1 1 250px;
+  max-width: 350px;
+}
+.contato-info h2 {
+  color: #CF7612;
+  margin-bottom: 15px;
+}
+
+/* ------------------- CURSOS ------------------- */
+.cursos {
+  padding: 60px 20px;
+}
+.cursos-hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.cursos-hero h1 {
+  color: #CF7612;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.cursos-hero p {
+  color: #333;
+  font-size: 1rem;
+}
+.cursos .cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+.cursos .card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.cursos .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+.cursos .card-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.cursos .card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.cursos .card-content h3 {
+  color: #CF7612;
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+}
+.cursos .card-content p {
+  margin: 0 0 10px 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+.cursos .card-content ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0 0 15px 0;
+}
+.cursos .card-content button.btn-primary {
+  align-self: center;
+}
+
+.card-divider {
+  width: 250px;               /* comprimento */
+  height: 3px;               /* espessura */
+  background-color: #CF7612;  /* laranja de destaque */
+  margin: 15px auto;          /* espaço em cima/baixo e centralização */
+  border-radius: 2px;         /* cantos arredondados */
+}
+.curso-individual {
+  padding: 60px 20px;
+  background-color: #F5F5F5;
+}
+.curso-intro h2 {
+  font-size: 2rem;
+  color: #CF7612;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+/* Descrição */
+.curso-intro p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+.curso-intro {
+  max-width: 900px;
+  margin: 80px auto 40px auto;
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  border-top: 6px solid #CF7612; /* destaque laranja */
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.curso-intro:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+/* Lista de tópicos */
+.curso-intro ul {
+  list-style: disc;
+  padding-left: 20px;
+  text-align: left;
+  margin-bottom: 30px;
+}
+.curso-intro ul li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #555;
+}
+.curso-intro .btn-primary {
+  background-color: #CF7612;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.curso-intro .btn-primary:hover {
+  background-color: #B35F0F;
+  transform: translateY(-2px);
+}
+/* Botão de voltar (opcional) */
+.curso-intro .btn-secondary {
+  background-color: #f5f5f5;
+  color: #CF7612;
+  border: 2px solid #CF7612;
+  padding: 10px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all 0.3s;
+}
+.curso-intro .btn-secondary:hover {
+  background-color: #CF7612;
+  color: #fff;
+}
+
+/* ------------------- CONTAINER SLIDES ------------------- */
+.slides-container {
+  display: flex;
+  gap: 30px;
+  justify-content: flex-start; /* desloca slides e sumário mais para a esquerda */
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 40px;
+}
+
+/* ------------------- SUMÁRIO ------------------- */
+.curso-sumario {
+  flex: 0 0 250px; /* largura fixa */
+  max-height: 600px;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  border-top: 6px solid #CF7612;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  margin-left: 20px; /* empurra da borda esquerda */
+}
+.curso-sumario h3 {
+  margin-top: 0;
+  color: #CF7612;
+}
+.curso-sumario ul li {
+  cursor: pointer;
+  margin-bottom: 12px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+.curso-sumario ul li:hover {
+  background-color: #CF7612;
+  color: #fff;
+}
+/* Container que envolve sumário + slides */
+.curso-detalhes {
+  display: flex;
+  gap: 30px; /* espaço entre sumário e slide */
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px; /* afasta do canto da tela */
+}
+
+/* ------------------- WRAPPER DO SLIDE ------------------- */
+.slides-wrapper {
+  flex: 1;
+  position: relative;
+  max-width: 75%; /* aumenta a largura máxima */
+  background-color: #ececec;
+  border-radius: 5%;
+}
+
+/* ------------------- SLIDE ------------------- */
+.slide {
+  display: none;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  width: 100%;
+  height: 85vh; /* aumenta altura */
+  max-height: 850px;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* ------------------- BOTÕES DE NAVEGAÇÃO ------------------- */
+.slider-prev, .slider-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #333;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  padding: 12px 18px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  z-index: 10;
+  transition: background-color 0.3s;
+  line-height: 1; /* valor base */
+}
+
+
+.slider-prev:hover, .slider-next:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* mais forte no hover */
+  color: #fff;
+}
+
+.slider-prev { left: 15px; }
+.slider-next { right: 15px; }
+
+.slider-prev { padding-left: 15px; }  /* ajusta o "<" dentro da bola */
+.slider-next { padding-right: 15px; } /* ajusta o ">" dentro da bola */
+
+.btn-voltar {
+  position: absolute;
+  top: 0px;
+  right: -100px;
+  padding: 10px 16px;
+  background: #CF7612;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 15;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-voltar:hover {
+  background: #a74f00;
+  transform: scale(1.05);
+}

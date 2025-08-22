@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos Parisotto</title>
+     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!---- MENU SIDEBAR ---->
+    <div class="sidebar">
+
+        <!--LOGO NA SIDEBAR-->
+        <div class="logo">
+            <span class="full-logo">Pratomil</span> 
+            <span class="mini-logo">P</span>
+        </div>
+
+        <!--MENUS SIDEBAR-->
+        <a href="#home" onclick="showContent('home')">
+            <i class="fas fa-home"></i> Home
+        </a>
+        <a href="#tutorial" onclick="showContent('tutorial')">
+            <i class="fas fa-graduation-cap"></i> Cursos
+        </a>
+        <a href="#contato" onclick="showContent('contato')">
+            <i class="fas fa-envelope"></i> Contato
+        </a>
+    </div>
+
+    <!--MAIN CONTENT LIGACAO-->
+    <div class="main-content">
+        <main id="app"></main>
+    </div>
+
+    <!--LIGACAO SCRIPT-->
+    <script scr="script.js"></script>
+
+</body>
+</html>

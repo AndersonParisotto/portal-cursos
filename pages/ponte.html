@@ -1,0 +1,975 @@
+/*------------------------*/
+/* VARIAVEIS              */
+/*------------------------*/
+:root{
+  --sidebar-wide: 300px;
+  --sidebar-collapsed: 75px; /* altere aqui o tamanho da faixa visível quando retraído */
+  --transition-fast: 0.25s;
+}
+/*------------------------*/
+/* VARIAVEIS              */
+/*------------------------*/
+
+/*------------------------*/
+/* CORPO GERAL            */ 
+/*------------------------*/                           
+        body {
+            margin: 0;
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+            background-color: #f5f5f5;
+            color: #2f2f2f;
+        }
+
+        h1{
+            font-size: 45px;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 22;
+            font-weight:bolder;
+            font-family: Helvetica, sans-serif;
+        }
+
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+/*------------------------*/
+/* CORPO GERAL            */ 
+/*------------------------*/
+
+
+/*-------------------------*/
+/* MENU LATERAL            */
+/*-------------------------*/
+
+/*-------MENU PRINCIPAL-------*/
+.sidebar {
+  width: var(--sidebar-wide);
+  height: 100%;
+  background-color: #CF7612;
+  color: white;
+  padding-top: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transition: width var(--transition-fast) ease;
+  overflow: hidden;
+  z-index: 1000;
+  font-size: 30px;
+}
+
+.sidebar.retratil {
+  width: var(--sidebar-collapsed);
+}
+/*-------MENU PRINCIPAL-------*/
+
+/*-------EXPANSAO APOS HOVER-------*/
+.sidebar.retratil:hover {
+  width: var(--sidebar-wide);
+}
+/*-------EXPANSAO APOS HOVER-------*/
+
+/*-------LOGO-------*/
+.sidebar .logo {
+  position: relative;
+  height: 60px;
+  margin-bottom: 20px;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.sidebar .logo .full-logo,
+.sidebar .logo .mini-logo {
+  position: absolute;
+  left: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
+  font-size: 50px;
+  font-family: marydale, sans-serif
+}s
+/*-------LOGO-------*/
+
+.sidebar a i {
+    margin-right: 10px; /* distância entre ícone e texto */
+    width: 20px;        /* opcional, alinha todos os ícones */
+    text-align: center;
+}
+
+/*-------ESTADO NORMAL-------*/
+.sidebar .logo .full-logo { opacity: 1; transform: translate(0, -50%); font-family: marydale, sans-serif}
+.sidebar .logo .mini-logo { opacity: 0; transform: translate(-10px, -50%); font-family: marydale, sans-serif}
+/*-------ESTADO NORMAL-------*/
+
+/*-------RETRATIL-------*/
+.sidebar.retratil .logo .full-logo { opacity: 0; transform: translate(-10px, -50%);font-family: marydale, sans-serif }
+.sidebar.retratil .logo .mini-logo { opacity: 1; transform: translate(0, -50%);left: 22px;font-family: marydale, sans-serif}
+/*-------RETRATIL-------*/
+
+
+/*-------RETRATIL+HOVER-------*/
+.sidebar.retratil:hover .logo .full-logo { opacity: 1; transform: translate(0, -50%);font-family: marydale, sans-serif }
+.sidebar.retratil:hover .logo .mini-logo { opacity: 0; transform: translate(-10px, -50%);font-family: marydale, sans-serif }
+/*-------RETRATIL+HOVER-------*/
+
+/*-------LINKS-------*/
+.sidebar a {
+  display: block;
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  transition: background .2s;
+}
+.sidebar a:hover { background-color: #f4e3b2; color: #2f2f2f; }
+/*-------LINKS-------*/
+
+/*-------ESCONDER LINK-------*/
+.sidebar.retratil a { display: none; }
+.sidebar.retratil:hover a { display: block; }
+/*-------ESCONDER LINK-------*/
+
+.main-content {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4pc 12px rgba(0,0,0,0.1);
+  flex-grow: 1;
+  font-size: 18px;
+}
+
+.main-content,
+.caixa-inferior {
+    margin-left: var(--sidebar-wide);
+    transition: margin-left var(--transition-fast) ease;
+}
+
+/*-------AJUSTE BARRA RETRAI-------*/
+.sidebar.retratil ~ .main-content { margin-left: var(--sidebar-collapsed); }
+.sidebar.retratil:hover ~ .main-content { margin-left: var(--sidebar-wide); }
+
+.content-section {
+    display: none;
+    padding: 0px 30px;
+}
+.content-section.active {
+    display:block;
+    margin-bottom: 0px;
+    font-size: 20px;
+    
+}
+/*-------AJUSTE BARRA RETRAI-------*/
+
+/*-------------------------*/
+/* MENU LATERAL            */
+/*-------------------------*/
+
+
+/*-------------------------*/
+/* BOTAO                   */
+/*-------------------------*/
+        button {
+            background-color: #0b4628;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-family: 'Marydale', sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #2f2f2f;
+        }
+/*-------------------------*/
+/* BOTAO                   */
+/*-------------------------*/
+
+/*-------------------------*/
+/* CARDS                   */
+/*-------------------------*/
+        .cards-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 40px 70px; /* 40px vertical, 60px horizontal */
+                justify-content: flex-start; 
+                padding-left: 60px; 
+                background-color: #fff;
+                color: #2f2f2f;
+                border-radius: 12px;
+                padding-top: 60px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            width: 250px; /* largura fixa para todos os cards */
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            border-bottom: 1px solid #eee;
+            object-fit: cover;
+        }
+
+        .card p {
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 330px;
+            overflow: hidden;
+            border-bottom: 1px solid #eee;
+        }
+
+        .card-hover-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7); /* fundo escuro semitransparente */
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: left;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            padding: 20px 15px;
+            padding-top: 0px;
+            font-size: 14px;
+            line-height: 1.4;
+            border-radius: 12px 12px 0 0; /* combina com o card */
+        }
+
+        .card:hover img {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        .card:hover .card-hover-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-title {
+            font-weight: bold;
+            padding: 12px 10px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .card:hover {
+            transform: translateY(-5px); /* levanta o card levemente */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25); /* sombra mais forte */
+        }
+
+        .title-hover {
+            font-weight: bold;
+            font-size: 25px;
+            margin-bottom: 0;
+            width: 100%;
+        }
+
+/*-------LISTA DE TOPICOS-------*/
+        .topics-hover {
+            list-style: none;  /* remove bullets padrão */
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .topics-hover li {
+            margin-bottom: 8px;
+        }
+/*-------LISTA DE TOPICOS-------*/
+
+/*-------------------------*/
+/* CARDS                   */
+/*-------------------------*/   
+
+/*-------------------------*/
+/* LOGO                    */
+/*-------------------------*/  
+.logo-container {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd; /* opcional, separa do menu */
+}
+
+.logo {
+    max-width: 200px; /* ajuste o tamanho */
+    height: auto;
+}
+/*-------------------------*/
+/* LOGO                    */
+/*-------------------------*/  
+
+/*-------------------------*/
+/* SLIDE                   */
+/*-------------------------*/  
+.curso-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px; /* diminui o espaço entre slides e sumário */
+    flex-wrap: wrap; /* para ficar responsivo no celular */
+}
+
+/* Container do slide do curso */
+.slideshow {
+    position: relative;
+    width: 100%;
+    max-width: 1300px;
+    height: 80vh;
+    max-height: 900px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Slides */
+.slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+}
+
+/* Estilo da seta com bola redonda */
+.slider-topo-prev,
+.slider-topo-next {
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.4);
+    color: #CF7612;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* alinha a seta mais para baixo */
+    padding-top: 62px; /* ajusta ainda mais se precisar */
+}
+
+
+.slider-topo-prev:hover,
+.slider-topo-next:hover {
+    background: #CF7612;; /* mais visível ao passar o mouse */
+    color: #fff;
+}
+
+.slider-topo-prev { left: 20px; }
+.slider-topo-next { right: 20px; }
+
+
+
+.sumario {
+    width: 200px;
+    font-size: 35px;
+}
+
+.sumario ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sumario li {
+    cursor: pointer;
+    padding: 1px;
+    margin: 5px 0;
+    background: #f5f5f5;
+    border-radius: 8px;
+    transition: background 0.3s;
+    font-size: 25px;
+}
+
+.sumario li:hover {
+    background: #CF7612;
+    color: white;
+}
+/*-------------------------*/
+/* SLIDE                   */
+/*-------------------------*/ 
+
+/*-------------------------*/
+/* TITULO SLIDE            */
+/*-------------------------*/  
+
+.titulo-com-botao {
+    display: flex;
+    align-items: center;   /* centraliza verticalmente o botão com o título */
+    justify-content:space-between; /* título à esquerda, botão à direita */
+    margin-bottom: 10px;
+}
+
+.titulo-com-botao button {
+    font-size: 16px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background-color: #0b4628;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.titulo-com-botao button:hover {
+    background-color: #2f2f2f;
+}
+/*-------------------------*/
+/* TITULO SLIDE            */
+/*-------------------------*/  
+
+/*-------------------------*/
+/* CAIXA                   */
+/*-------------------------*/  
+.home-container {
+    margin-left: var(--sidebar-wide);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* Slider topo */
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 1300px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 12px;
+    margin: 0 auto;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+}
+
+
+/* Destaques */
+.destaques-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.box-curso {
+    background: #fdfdfd;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.box-curso:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+/* Depoimentos */
+.depoimentos-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.depoimentos-slider {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+}
+
+.depoimento-card {
+    min-width: 250px;
+    background: #fdfdfd;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+
+.depoimento-card:hover {
+    transform: scale(1.03);
+}
+
+/* Dicas + FAQ */
+.container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.dicas-box, .faq-box {
+    flex: 1 1 400px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+hr {
+    border: 1px solid #CF7612;
+    margin-bottom: 15px;
+    max-width: 300px;
+    text-align: left;
+}
+
+
+
+
+JAVA 
+
+
+// referencias
+const sidebar = document.querySelector('.sidebar');
+const mainContent = document.querySelector('.main-content');
+const sections = document.querySelectorAll('.content-section');
+const abasCursos = document.querySelectorAll('.aba-curso');
+const cards = document.querySelectorAll('.card');
+
+// mostra seção (somente alterna classes, NÃO modifica style.width/style.marginLeft)
+function showContent(sectionId) {
+  // esconde seções e abas de curso
+  sections.forEach(s => s.classList.remove('active'));
+  abasCursos.forEach(a => a.style.display = 'none');
+
+  // mostra a seção
+  const sec = document.getElementById(sectionId);
+  if (sec) sec.classList.add('active');
+
+  // adiciona/ remove a classe retratil (CSS cuida do resto)
+  if (sectionId === 'home') {
+    sidebar.classList.remove('retratil');
+  } else {
+    sidebar.classList.add('retratil');
+  }
+}
+
+// abrir curso pelos cards (mantém seu comportamento)
+cards.forEach(card => {
+  card.addEventListener('click', () => {
+    const id = card.getAttribute('data-target');
+    sections.forEach(s => s.classList.remove('active'));
+    abasCursos.forEach(a => a.style.display = 'none');
+    const target = document.getElementById(id);
+    if (target) target.style.display = 'block';
+  });
+});
+
+function voltarCursos() {
+  abasCursos.forEach(a => a.style.display = 'none');
+  showContent('tutorial');
+}
+
+// --- slides (seu código de slides continua aqui) ---
+
+// ======================= SLIDES =======================
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const prevBtn = document.querySelector('.slider-topo-prev');
+const nextBtn = document.querySelector('.slider-topo-next');
+
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    currentSlide = (index + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+}
+
+prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+
+function goToSlide(n) { showSlide(n); }
+
+showSlide(0);
+
+    
+
+<!------------------------------------------------------------------------->
+<!-------------------------- MENU LATERAL --------------------------------->
+<!------------------------------------------------------------------------->
+
+<!------------------------------------------------------------------------->
+<!-------------------------- MENU LATERAL --------------------------------->
+<!------------------------------------------------------------------------->
+
+<!------------------------------------------------------------------------->
+<!-------------------------- CONTEUDO PÁGINAS ----------------------------->
+<!------------------------------------------------------------------------->
+    <div class="main-content">
+        <div id="home" class="content-section active">
+            
+        </div>
+    <!------------------------------------------------------------------------->
+    <!-------------------------- TUTORIAL ------------------------------------->
+    <!------------------------------------------------------------------------->
+        <div id="tutorial" class="content-section">
+
+            
+
+                    <div class="card" data-target="curso1">
+                        <div class="card-inner">
+                            <img src="https://i.imgur.com/PkMITdG.jpg" alt="Curso 1">
+                            <div class="card-hover-text">
+                                <p class="title-hover">Você aprenderá:</p>
+                                <ul class="topics-hover">
+                                    <li>Rotina de Compras</li>
+                                    <li>Cálculo da Previsão</li>
+                                    <li>Cálculo da Necessidade</li>
+                                    <li>Geração de Solicitação de Compras</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="card">
+                        <div class="card-inner">
+                            <img src="https://i.imgur.com/RINlElu.jpg" alt="Curso 2">
+                            <div class="card-hover-text">
+                                <p class="title-hover">Você aprenderá:</p>
+                                <ul class="topics-hover">
+                                    <li>Entrada em nota fiscal de serviço</li>
+                                    <li>Entrada em nota fiscal de compra</li>
+                                    <li>Relacionamento de itens</li>
+                                    <li>Edição de vencimentos</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="card-title">Lançamento de Entrada</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-inner">
+                            <img src="https://i.imgur.com/PkMITdG.jpg" alt="Curso 3">
+                            <div class="card-hover-text">
+                                <p class="title-hover">Você aprenderá:</p>
+                                <ul class="topics-hover">
+                                    <li>Ajuste manual de dias não úteis</li>
+                                    <li>Ajuste automático de dias nao úteis</li>
+                                    <li>Relatório de dias não úteis</li>
+                                    <li>Ajuste de feriados com expediente</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="card-title">Calendário de Dias Não Úteis</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-inner">
+                            <img src="https://i.imgur.com/PkMITdG.jpg" alt="Curso 3">
+                            <div class="card-hover-text">
+                                <p class="title-hover">Você aprenderá:</p>
+                                <ul class="topics-hover">
+                                    <li>Ajuste manual de dias não úteis</li>
+                                    <li>Ajuste automático de dias nao úteis</li>
+                                    <li>Relatório de dias não úteis</li>
+                                    <li>Ajuste de feriados com expediente</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="card-title">Calendário de Dias Não Úteis</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-inner">
+                            <img src="https://i.imgur.com/PkMITdG.jpg" alt="Curso 3">
+                            <div class="card-hover-text">
+                                <p class="title-hover">Você aprenderá:</p>
+                                <ul class="topics-hover">
+                                    <li>Ajuste manual de dias não úteis</li>
+                                    <li>Ajuste automático de dias nao úteis</li>
+                                    <li>Relatório de dias não úteis</li>
+                                    <li>Ajuste de feriados com expediente</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="card-title">Calendário de Dias Não Úteis</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-inner">
+                            <img src="https://i.imgur.com/PkMITdG.jpg" alt="Curso 3">
+                            <div class="card-hover-text">
+                                <p class="title-hover">Você aprenderá:</p>
+                                <ul class="topics-hover">
+                                    <li>Ajuste manual de dias não úteis</li>
+                                    <li>Ajuste automático de dias nao úteis</li>
+                                    <li>Relatório de dias não úteis</li>
+                                    <li>Ajuste de feriados com expediente</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="card-title">Calendário de Dias Não Úteis</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-inner">
+                            <img src="https://i.imgur.com/PkMITdG.jpg" alt="Curso 3">
+                            <div class="card-hover-text">
+                                <p class="title-hover">Você aprenderá:</p>
+                                <ul class="topics-hover">
+                                    <li>Ajuste manual de dias não úteis</li>
+                                    <li>Ajuste automático de dias nao úteis</li>
+                                    <li>Relatório de dias não úteis</li>
+                                    <li>Ajuste de feriados com expediente</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="card-title">Calendário de Dias Não Úteis</p>
+                    </div>
+
+                                    <div class="card">
+                        <div class="card-inner">
+                            <img src="https://i.imgur.com/PkMITdG.jpg" alt="Curso 3">
+                            <div class="card-hover-text">
+                                <p class="title-hover">Você aprenderá:</p>
+                                <ul class="topics-hover">
+                                    <li>Ajuste manual de dias não úteis</li>
+                                    <li>Ajuste automático de dias nao úteis</li>
+                                    <li>Relatório de dias não úteis</li>
+                                    <li>Ajuste de feriados com expediente</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="card-title">Calendário de Dias Não Úteis</p>
+                    </div>
+
+
+                </div>
+            </div>
+    <!-------------------------- CARDS CURSO ---------------------------------->
+
+    <!-------------------------- CONTEUDO CURSOS ------------------------------>
+        <div id="curso1" class="aba-curso"  style="display:none;">
+
+            
+                <h2 style="margin: 0;">Compras e Suprimentos</h2>
+                
+            </div>
+        
+            <div class="curso-container">
+                <!-- Área do slide -->
+                <div class="slideshow">
+                    <div class="slides">
+                        <div class="slide active">
+                            <img src="imagens/slides/Slide1.SVG" alt="Slide 1">
+                        </div>
+                        <div class="slide">
+                            <img src="imagens/slides/Slide2.SVG" alt="Slide 2">
+                        </div>
+                        <div class="slide">
+                            <img src="imagens/slides/Slide3.SVG" alt="Slide 3">
+                        </div>
+                        <div class="slide">
+                            <img src="imagens/slides/Slide4.SVG" alt="Slide 4">
+                        </div>
+                        <div class="slide">
+                            <img src="imagens/slides/Slide5.SVG" alt="Slide 5">
+                        </div>
+                        <div class="slide">
+                            <img src="imagens/slides/Slide6.SVG" alt="Slide 6">
+                        </div>
+                        <div class="slide">
+                            <img src="imagens/slides/Slide7.SVG" alt="Slide 7">
+                        </div>
+                        <div class="slide">
+                            <img src="imagens/slides/Slide8.SVG" alt="Slide 8">
+                        </div>
+                        <div class="slide">
+                            <img src="imagens/slides/Slide9.SVG" alt="Slide 9">
+                        </div>
+                        <div class="slide">
+                            <img src="imagens/slides/Slide10.SVG" alt="Slide 10">
+                        </div>
+                        <div class="slide">
+                            <img src="imagens/slides/Slide11.SVG" alt="Slide 11">
+                        </div>
+                        <div class="slide">
+                            <img src="imagens/slides/Slide12.SVG" alt="Slide 12">
+                        </div>
+                        <div class="slide">
+                            <img src="imagens/slides/Slide13.SVG" alt="Slide 13">
+                        </div>
+                        <div class="slide">
+                            <img src="imagens/slides/Slide14.SVG" alt="Slide 14">
+                        </div>
+                        <div class="slide">
+                            <img src="imagens/slides/Slide15.SVG" alt="Slide 15">
+                        </div>
+                        <div class="slide">
+                            <img src="imagens/slides/Slide16.SVG" alt="Slide 16">
+                        </div>
+                        <div class="slide">
+                            <img src="imagens/slides/Slide17.SVG" alt="Slide 17">
+                        </div>
+                        <div class="slide">
+                            <img src="imagens/slides/Slide18.SVG" alt="Slide 18">
+                        </div>
+                    </div>   
+                    
+                    <button class="slider-topo-prev">◀</button>
+                    <button class="slider-topo-next">▶</button>
+
+                <!-- Sumário lateral -->
+                <div class="sumario">
+                    <h3>Sumário</h3>
+                    <ul>
+                        <li onclick="goToSlide(0)">Introdução</li>
+                        <li onclick="goToSlide(1)">Cálculo da Previsão</li>
+                        <li onclick="goToSlide(2)">Solicitação de Compras</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="curso2" class="aba-curso" style="display:none;">
+            <h2>Outro Curso</h2>
+            <p>Conteúdo do outro curso aqui...</p>
+            <button onclick="voltarCursos()">⬅ Voltar</button>
+        </div>
+    <!-------------------------- CONTEUDO CURSOS ------------------------------>
+    </div>
+    <!------------------------------------------------------------------------->
+    <!-------------------------- TUTORIAL ------------------------------------->
+    <!------------------------------------------------------------------------->
+
+<!------------------------------------------------------------------------->
+<!-------------------------- CONTEUDO PÁGINAS ----------------------------->
+<!------------------------------------------------------------------------->
+
+<!------------------------------------------------------------------------->
+<!-------------------------- CAIXA ---------------------------------------->
+<!------------------------------------------------------------------------->
+<div class="home-container">
+
+    <!-- Topo / Slider -->
+    <div class="slider-container">
+        <div class="slide active"><img src="curso1.jpg" alt="Curso 1"></div>
+        <div class="slide"><img src="curso2.jpg" alt="Curso 2"></div>
+        <div class="slide"><img src="curso3.jpg" alt="Curso 3"></div>
+        <button class="slider-depo-prev">&#10094;</button>
+        <button class="slider-depo-next">&#10095;</button>
+    </div>
+
+    <!-- Destaques -->
+    <div class="destaques-box">
+        <h2>Destaques</h2>
+        <hr>
+        <div class="box-curso">Curso 1 <button>Saiba mais</button></div>
+        <div class="box-curso">Curso 2 <button>Saiba mais</button></div>
+        <div class="box-curso">Curso 3 <button>Saiba mais</button></div>
+    </div>
+
+    <!-- Depoimentos -->
+    <div class="depoimentos-box">
+        <h2>O que dizem nossos alunos</h2>
+        <hr>
+        <div class="depoimentos-slider">
+            <div class="depoimento-card">Depoimento 1</div>
+            <div class="depoimento-card">Depoimento 2</div>
+            <div class="depoimento-card">Depoimento 3</div>
+        </div>
+        <button class="slider-prev-depo">&#10094;</button>
+        <button class="slider-next-depo">&#10095;</button>
+    </div>
+
+    <button class="slider-depo-prev">◀</button>
+    <button class="slider-depo-next">▶</button>
+
+    <!-- Dicas + FAQ -->
+    <div class="container">
+        <div class="dicas-box">
+            <h2>Dicas Rápidas</h2>
+            <hr>
+            <ul>
+                <li>Dica 1</li>
+                <li>Dica 2</li>
+            </ul>
+        </div>
+        <div class="faq-box">
+            <h2>Perguntas Frequentes</h2>
+            <hr>
+            <ul>
+                <li>Pergunta 1</li>
+                <li>Pergunta 2</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!------------------------------------------------------------------------->
+<!-------------------------- CAIXA ---------------------------------------->
+<!------------------------------------------------------------------------->
+
+
+
+
+
+        <div id="contato" class="content-section">
+            
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
