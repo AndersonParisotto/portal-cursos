@@ -6,6 +6,9 @@ body {
   margin: 0;
   padding: 0;
 }
+body, html {
+  overflow-x: hidden; /* remove rolagem horizontal */
+}
 
 /* Botão principal */
 .btn-primary {
@@ -237,6 +240,20 @@ body {
   color: #CF7612;
   margin-bottom: 15px;
 }
+/* ------------------- RODAPÉ ------------------- */
+.footer-fixed {
+  position: fixed;      /* fixa na tela */
+  bottom: 10px;         /* distância do rodapé */
+  right: 20px;          /* distância da borda direita */
+  background-color: rgba(255, 255, 255, 0.8); /* opcional, deixa o fundo levemente branco */
+  padding: 5px 10px;
+  border-radius: 6px;   /* opcional, deixa cantos arredondados */
+  font-size: 0.9rem;
+  color: #333;
+  z-index: 1000;        /* garante que fique acima de outros elementos */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* opcional, sombra discreta */
+}
+
 
 /* ------------------- CURSOS ------------------- */
 .cursos {
@@ -305,11 +322,11 @@ body {
 }
 
 .card-divider {
-  width: 250px;               /* comprimento */
-  height: 3px;               /* espessura */
-  background-color: #CF7612;  /* laranja de destaque */
-  margin: 15px auto;          /* espaço em cima/baixo e centralização */
-  border-radius: 2px;         /* cantos arredondados */
+  width: 250px;
+  height: 3px;
+  background-color: #CF7612;
+  margin: 15px auto;
+  border-radius: 2px;
 }
 .curso-individual {
   padding: 60px 20px;
@@ -321,7 +338,6 @@ body {
   margin-bottom: 15px;
   font-weight: bold;
 }
-/* Descrição */
 .curso-intro p {
   font-size: 1.1rem;
   color: #333;
@@ -329,185 +345,14 @@ body {
   line-height: 1.5;
 }
 .curso-intro {
-  max-width: 900px;
+  background: linear-gradient(135deg, #fff4e6, #fff);
+  border-radius: 14px;
+  padding: 40px;
   margin: 80px auto 40px auto;
-  background-color: #fff;
-  padding: 30px 40px;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-  border-top: 6px solid #CF7612; /* destaque laranja */
+  max-width: 900px;
   text-align: center;
-  position: relative;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.curso-intro:hover {
-  transform: scale(1.02);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-}
-/* Lista de tópicos */
-.curso-intro ul {
-  list-style: disc;
-  padding-left: 20px;
-  text-align: left;
-  margin-bottom: 30px;
-}
-.curso-intro ul li {
-  margin-bottom: 10px;
-  font-size: 1rem;
-  color: #555;
-}
-.curso-intro .btn-primary {
-  background-color: #CF7612;
-  color: #fff;
-  border: none;
-  padding: 12px 30px;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-.curso-intro .btn-primary:hover {
-  background-color: #B35F0F;
-  transform: translateY(-2px);
-}
-/* Botão de voltar (opcional) */
-.curso-intro .btn-secondary {
-  background-color: #f5f5f5;
-  color: #CF7612;
-  border: 2px solid #CF7612;
-  padding: 10px 25px;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-left: 10px;
-  transition: all 0.3s;
-}
-.curso-intro .btn-secondary:hover {
-  background-color: #CF7612;
-  color: #fff;
-}
-
-/* ------------------- CONTAINER SLIDES ------------------- */
-.slides-container {
-  display: flex;
-  gap: 30px;
-  justify-content: flex-start; /* desloca slides e sumário mais para a esquerda */
-  align-items: flex-start;
-  width: 100%;
-  margin-top: 40px;
-}
-
-/* ------------------- SUMÁRIO ------------------- */
-.curso-sumario {
-  flex: 0 0 250px; /* largura fixa */
-  max-height: 600px;
-  overflow-y: auto;
-  background: #fff;
-  border-radius: 10px;
-  padding: 10px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
   border-top: 6px solid #CF7612;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  margin-left: 20px; /* empurra da borda esquerda */
+  transition: all 0.3s ease;
 }
-.curso-sumario h3 {
-  margin-top: 0;
-  color: #CF7612;
-}
-.curso-sumario ul li {
-  cursor: pointer;
-  margin-bottom: 12px;
-  padding: 6px 8px;
-  border-radius: 6px;
-  transition: all 0.3s;
-}
-.curso-sumario ul li:hover {
-  background-color: #CF7612;
-  color: #fff;
-}
-/* Container que envolve sumário + slides */
-.curso-detalhes {
-  display: flex;
-  gap: 30px; /* espaço entre sumário e slide */
-  align-items: flex-start;
-  justify-content: center;
-  padding: 20px; /* afasta do canto da tela */
-}
-
-/* ------------------- WRAPPER DO SLIDE ------------------- */
-.slides-wrapper {
-  flex: 1;
-  position: relative;
-  max-width: 75%; /* aumenta a largura máxima */
-  background-color: #ececec;
-  border-radius: 5%;
-}
-
-/* ------------------- SLIDE ------------------- */
-.slide {
-  display: none;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.slide.active {
-  display: block;
-}
-
-.slide img {
-  width: 100%;
-  height: 85vh; /* aumenta altura */
-  max-height: 850px;
-  object-fit: contain;
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-
-/* ------------------- BOTÕES DE NAVEGAÇÃO ------------------- */
-.slider-prev, .slider-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.6);
-  color: #333;
-  border: none;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  padding: 12px 18px;
-  cursor: pointer;
-  border-radius: 50%;
-  font-size: 1.2rem;
-  z-index: 10;
-  transition: background-color 0.3s;
-  line-height: 1; /* valor base */
-}
-
-
-.slider-prev:hover, .slider-next:hover {
-  background-color: rgba(0, 0, 0, 0.8); /* mais forte no hover */
-  color: #fff;
-}
-
-.slider-prev { left: 15px; }
-.slider-next { right: 15px; }
-
-.slider-prev { padding-left: 15px; }  /* ajusta o "<" dentro da bola */
-.slider-next { padding-right: 15px; } /* ajusta o ">" dentro da bola */
-
-.btn-voltar {
-  position: absolute;
-  top: 0px;
-  right: -100px;
-  padding: 10px 16px;
-  background: #CF7612;
-  color: #fff;
-  font-size: 14px;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  z-index: 15;
-  transition: background 0.3s, transform 0.2s;
-}
-
-.btn-voltar:hover {
-  background: #a74f00;
-  transform: scale(1.05);
-}
+.curso-intro:hover { transform: translateY(-5px); }

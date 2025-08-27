@@ -1,52 +1,76 @@
 <div id="curso1" class="curso-container">
 
-  <!-- Introdução do curso -->
-  <div class="curso-intro">
-    <h2>Compras e Suprimentos</h2>
-    <p>Aprenda a gerenciar processos de compras de forma eficiente.</p>
+  <!-- SUMÁRIO -->
+  <div class="curso-sumario">
+    <h3>Sumário</h3>
     <ul>
-      <li>Rotina de Compras</li>
-      <li>Cálculo da Previsão</li>
-      <li>Geração de Solicitação de Compras</li>
+      <li data-slide="0">Boas-vindas</li>
+      <li data-slide="1">Estoque Animado</li>
+      <li data-slide="2">Pedidos Rápidos</li>
+      <li data-slide="3">Custos & Gráficos</li>
+      <li data-slide="4">Fechamento Mensal</li>
+      <li data-slide="5">Dicas Criativas</li>
     </ul>
-    <button onclick="startSlides('curso1')" class="btn-primary" style="font-weight: bold;">INICIAR</button>
-    <button class="btn-primary btn-voltar" onclick="backToHome()" style="position: unset; margin-left: 15px;">← VOLTAR</button>
+    <button id="btn-iniciar" class="btn-primary">INICIAR</button>
   </div>
 
-  <!-- Container de slides -->s
-  <div class="slides-container" style="display:none;">
-    
-    <!-- Sumário do lado -->
-    <div class="curso-sumario">
-      <h3>Sumário</h3>
-      <ul>
-        <li onclick="goToSlide('curso1', 0)">Introdução</li>
-        <li onclick="goToSlide('curso1', 1)">Cálculo da Previsão</li>
-        <li onclick="goToSlide('curso1', 2)">Solicitação de Compras</li>
-      </ul>
+  <!-- ÁREA DE SLIDES -->
+  <div class="slide-area">
+
+    <!-- Retângulo inicial -->
+    <div id="retangulo-intro" class="retangulo-intro">COMPRAS & SUPRIMENTOS</div>
+
+    <!-- Slides Container -->
+    <div class="slides-container">
+      <div class="curso-intro">
+        <h2>Bem-vindo!</h2>
+        <p>Prepare-se para uma jornada interativa de compras e suprimentos.</p>
+        <img src="https://cdn-icons-png.flaticon.com/512/833/833314.png" class="slide-icon">
+      </div>
+
+      <div class="curso-slide" style="background: linear-gradient(135deg,#6A82FB,#FC5C7D);">
+        <h2>Estoque Animado</h2>
+        <p>Veja seus estoques ganharem vida com gráficos animados.</p>
+        <img src="https://cdn-icons-png.flaticon.com/512/833/833524.png" class="slide-icon">
+      </div>
+
+      <div class="curso-slide" style="background: linear-gradient(135deg,#00C9FF,#92FE9D);">
+        <h2>Pedidos Rápidos</h2>
+        <p>Envie solicitações de forma ágil e acompanhe em tempo real.</p>
+        <img src="https://cdn-icons-png.flaticon.com/512/833/833593.png" class="slide-icon">
+      </div>
+
+      <div class="curso-slide" style="background: linear-gradient(135deg,#FF6A00,#FFD200);">
+        <h2>Custos & Gráficos</h2>
+        <p>Compare preços e visualize relatórios interativos e coloridos.</p>
+        <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" class="slide-icon">
+      </div>
+
+      <div class="curso-slide" style="background: linear-gradient(135deg,#8E2DE2,#4A00E0);">
+        <h2>Fechamento Mensal</h2>
+        <p>Revise todas as compras do mês com animações e destaques coloridos.</p>
+        <img src="https://cdn-icons-png.flaticon.com/512/833/833314.png" class="slide-icon">
+      </div>
+
+      <div class="curso-slide" style="background: linear-gradient(135deg,#FF512F,#DD2476);">
+        <h2>Dicas Criativas</h2>
+        <p>Dicas interativas para tornar sua gestão de compras ainda mais eficiente.</p>
+        <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" class="slide-icon">
+      </div>
     </div>
 
-<!-- Slides -->
-    <div class="slides-wrapper">
-        <!-- Botão de voltar -->
-      <button class="btn-voltar" onclick="backToIntro('curso1')">
-        ← Voltar
-      </button> 
-
-      <div class="slide active">
-        <img src="img/Slide1.svg" alt="Slide 1">
+    <!-- PLAYER -->
+    <div class="slide-player">
+      <button id="play-passo">▶ Play</button>
+      <button id="pause-passo">⏸ Pause</button>
+      <div class="speed-control">
+        <label for="speed-range">Velocidade:</label>
+        <input type="range" id="speed-range" min="500" max="5000" step="100" value="3000">
+        <span id="speed-value">3.0s</span>
       </div>
-      <div class="slide">
-        <img src="img/Slide2.svg" alt="Slide 2">
-      </div>
-      <div class="slide">
-        <img src="img/Slide3.svg" alt="Slide 3">
-      </div>
-
-      <!-- Botões de navegação -->
-      <button class="slider-prev" onclick="prevSlide('curso1')">◀</button>
-      <button class="slider-next" onclick="nextSlide('curso1')">▶</button>
+      <button id="fullscreen-passo">⛶ Fullscreen</button>
     </div>
 
   </div>
+
 </div>
